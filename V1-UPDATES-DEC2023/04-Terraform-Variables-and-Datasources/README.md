@@ -33,7 +33,7 @@
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
-  default = "us-east-1"  
+  default = "ap-south-1"  
 }
 
 # AWS EC2 Instance Type
@@ -128,7 +128,7 @@ data "aws_ami" "amzlinux2" {
   owners = [ "amazon" ]
   filter {
     name = "name"
-    values = [ "amzn2-ami-hvm-*-gp2" ]
+    values = [ "al2023-ami-2023*" ]
   }
   filter {
     name = "root-device-type"

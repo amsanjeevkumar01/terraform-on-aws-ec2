@@ -4,7 +4,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     bucket = "terraform-on-aws-for-ec2"
     key    = "dev/project1-vpc/terraform.tfstate"
-    region = "us-east-1"
+    region = "ap-south-1"
   }
 }
 

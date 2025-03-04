@@ -149,8 +149,8 @@ Observation:
 4. Access sample app using Load Balancer DNS Name
 5. Access Sample app with port 81 using Load Balancer DNS Name, it should fail, because from loadbalancer_sg port 81 is not allowed from internet. 
 # Example: from my environment
-http://HR-stag-myelb-557211422.us-east-1.elb.amazonaws.com  - Will pass
-http://HR-stag-myelb-557211422.us-east-1.elb.amazonaws.com:81  - will fail
+http://HR-stag-myelb-557211422.ap-south-1.elb.amazonaws.com  - Will pass
+http://HR-stag-myelb-557211422.ap-south-1.elb.amazonaws.com:81  - will fail
 ```
 
 ## Step-06: Update c5-05-securitygroup-loadbalancersg.tf 
@@ -179,7 +179,7 @@ terraform apply -auto-approve
 Observation: 
 1) Verify loadbalancer-sg in AWS mgmt console
 2) Access App using port 81 and test
-http://HR-stag-myelb-557211422.us-east-1.elb.amazonaws.com:81  - should pass
+http://HR-stag-myelb-557211422.ap-south-1.elb.amazonaws.com:81  - should pass
 ```
 
 ## Step-08: Clean-Up

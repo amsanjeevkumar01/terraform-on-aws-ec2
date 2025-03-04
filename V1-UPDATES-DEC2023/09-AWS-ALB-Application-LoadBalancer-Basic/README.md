@@ -69,7 +69,7 @@ http://<public-ip-instance-2>/app1/metadata.html
     - Load Balancer Port: 80
   - **Availability Zones:**
     - VPC: default-vpc
-    - Availability Zones: us-east-1a, us-east-1b, us-east-1c  (Verify first where EC2 Instances created)        
+    - Availability Zones: ap-south-1a, ap-south-1b, ap-south-1c  (Verify first where EC2 Instances created)        
 - **Step 2: Configure Security Settings** 
   - Click **Next**
 - **Step 3: Configure Security Groups**
@@ -95,9 +95,9 @@ http://<public-ip-instance-2>/app1/metadata.html
 - Access using Load Balancer DNS
 ```
 # Access Application
-http://alb-basic-test-1565875067.us-east-1.elb.amazonaws.com
-http://alb-basic-test-1565875067.us-east-1.elb.amazonaws.com/app1/index.html
-http://alb-basic-test-1565875067.us-east-1.elb.amazonaws.com/app1/metadata.html
+http://alb-basic-test-1565875067.ap-south-1.elb.amazonaws.com
+http://alb-basic-test-1565875067.ap-south-1.elb.amazonaws.com/app1/index.html
+http://alb-basic-test-1565875067.ap-south-1.elb.amazonaws.com/app1/metadata.html
 ```
 
 ## Step-02-05: Clean-Up
@@ -274,9 +274,9 @@ Observation:
 4. Verify ALB Target Groups, Targets (should be healthy) and Health Check settings
 5. Access sample app using Load Balancer DNS Name
 # Example: from my environment
-http://hr-stag-alb-1575108738.us-east-1.elb.amazonaws.com 
-http://hr-stag-alb-1575108738.us-east-1.elb.amazonaws.com/app1/index.html
-http://hr-stag-alb-1575108738.us-east-1.elb.amazonaws.com/app1/metadata.html
+http://hr-stag-alb-1575108738.ap-south-1.elb.amazonaws.com 
+http://hr-stag-alb-1575108738.ap-south-1.elb.amazonaws.com/app1/index.html
+http://hr-stag-alb-1575108738.ap-south-1.elb.amazonaws.com/app1/metadata.html
 ```
 
 ## Step-07: Clean-Up

@@ -16,7 +16,7 @@
 ```t
 # Provider Block
 provider "aws" {
-  region  = "us-east-1"
+  region  = "ap-south-1"
 }
 ```
 
@@ -24,7 +24,7 @@ provider "aws" {
 - We are first going to explore the datasource and it outputs
 ```t
 # Determine which Availability Zones support your instance type
-aws ec2 describe-instance-type-offerings --location-type availability-zone  --filters Name=instance-type,Values=t3.micro --region us-east-1 --output table
+aws ec2 describe-instance-type-offerings --location-type availability-zone  --filters Name=instance-type,Values=t3.micro --region ap-south-1 --output table
 ```
 ### Step-03-01: Review / Create the datasource and its output
 ```t
@@ -36,8 +36,8 @@ data "aws_ec2_instance_type_offerings" "my_ins_type1" {
   }
   filter {
     name   = "location"
-    values = ["us-east-1a"]
-    #values = ["us-east-1e"]    
+    values = ["ap-south-1a"]
+    #values = ["ap-south-1e"]    
   }
   location_type = "availability-zone"
 }
@@ -60,20 +60,20 @@ terraform validate
 terraform plan
 terraform apply -auto-approve
 Observation: 
-1. Output should have the instance value `t3.micro` when `values = ["us-east-1a"]` in location filter
+1. Output should have the instance value `t3.micro` when `values = ["ap-south-1a"]` in location filter
 # Sample Output
 output_v1_1 = toset([
   "t3.micro",
 ])
 
 # Make a change
-Switch the values in `location` filter to `values = ["us-east-1e"]` and test again with `terraform plan`
+Switch the values in `location` filter to `values = ["ap-south-1e"]` and test again with `terraform plan`
 
 # Terraform Plan
 terraform plan
 terraform apply -auto-approve
 Observation: 
-1. Output should have the instance value empty `[]` when `values = ["us-east-1e"]` in location filter
+1. Output should have the instance value empty `[]` when `values = ["ap-south-1e"]` in location filter
 # Sample Output
 output_v1_1 = toset([])
 ```
@@ -85,7 +85,7 @@ output_v1_1 = toset([])
 # Check if that respective Instance Type is supported in that Specific Region in list of availability Zones
 # Get the List of Availability Zones in a Particular region where that respective Instance Type is supported
 data "aws_ec2_instance_type_offerings" "my_ins_type2" {
-  for_each = toset([ "us-east-1a", "us-east-1e" ])
+  for_each = toset([ "ap-south-1a", "ap-south-1e" ])
   filter {
     name   = "instance-type"
     values = ["t3.micro"]
@@ -127,10 +127,10 @@ output_v2_1 = toset([
   toset([]),
 ])
 output_v2_2 = {
-  "us-east-1a" = toset([
+  "ap-south-1a" = toset([
     "t3.micro",
   ])
-  "us-east-1e" = toset([])
+  "ap-south-1e" = toset([])
 }
 ```
 
@@ -204,48 +204,48 @@ Observation: refer sample output
 1. In the final output you will only get the availability zones list in which `t3.micro` instance is supported
 # Sample Output
 output_v3_1 = {
-  "us-east-1a" = toset([
+  "ap-south-1a" = toset([
     "t3.micro",
   ])
-  "us-east-1b" = toset([
+  "ap-south-1b" = toset([
     "t3.micro",
   ])
-  "us-east-1c" = toset([
+  "ap-south-1c" = toset([
     "t3.micro",
   ])
-  "us-east-1d" = toset([
+  "ap-south-1d" = toset([
     "t3.micro",
   ])
-  "us-east-1e" = toset([])
-  "us-east-1f" = toset([
+  "ap-south-1e" = toset([])
+  "ap-south-1f" = toset([
     "t3.micro",
   ])
 }
 output_v3_2 = {
-  "us-east-1a" = toset([
+  "ap-south-1a" = toset([
     "t3.micro",
   ])
-  "us-east-1b" = toset([
+  "ap-south-1b" = toset([
     "t3.micro",
   ])
-  "us-east-1c" = toset([
+  "ap-south-1c" = toset([
     "t3.micro",
   ])
-  "us-east-1d" = toset([
+  "ap-south-1d" = toset([
     "t3.micro",
   ])
-  "us-east-1f" = toset([
+  "ap-south-1f" = toset([
     "t3.micro",
   ])
 }
 output_v3_3 = [
-  "us-east-1a",
-  "us-east-1b",
-  "us-east-1c",
-  "us-east-1d",
-  "us-east-1f",
+  "ap-south-1a",
+  "ap-south-1b",
+  "ap-south-1c",
+  "ap-south-1d",
+  "ap-south-1f",
 ]
-output_v3_4 = "us-east-1a"
+output_v3_4 = "ap-south-1a"
 ```
 
 ## Step-06: Clean-Up

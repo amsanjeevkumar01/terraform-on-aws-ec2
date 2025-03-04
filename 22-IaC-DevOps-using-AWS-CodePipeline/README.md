@@ -37,14 +37,14 @@ description: Create AWS CodePipeline with Multiple Environments Dev and Staging
 ```t
 bucket = "terraform-on-aws-for-ec2"
 key    = "iacdevops/dev/terraform.tfstate"
-region = "us-east-1" 
+region = "ap-south-1" 
 dynamodb_table = "iacdevops-dev-tfstate" 
 ```
 ### Step-02-03: Create file named `stag.conf`
 ```t
 bucket = "terraform-on-aws-for-ec2"
 key    = "iacdevops/stag/terraform.tfstate"
-region = "us-east-1" 
+region = "ap-south-1" 
 dynamodb_table = "iacdevops-stag-tfstate" 
 ```
 ### Step-02-04: Create S3 Bucket related folders for both environments for Terraform State Storage
@@ -95,7 +95,7 @@ environment = "dev"
 # VPC Variables
 vpc_name = "myvpc"
 vpc_cidr_block = "10.0.0.0/16"
-vpc_availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+vpc_availability_zones = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
 vpc_public_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 vpc_private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 vpc_database_subnets= ["10.0.151.0/24", "10.0.152.0/24", "10.0.153.0/24"]
@@ -116,7 +116,7 @@ environment = "stag"
 # VPC Variables
 vpc_name = "myvpc"
 vpc_cidr_block = "10.0.0.0/16"
-vpc_availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+vpc_availability_zones = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
 vpc_public_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 vpc_private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 vpc_database_subnets= ["10.0.151.0/24", "10.0.152.0/24", "10.0.153.0/24"]
@@ -138,7 +138,7 @@ private_instance_count = 2
 - `terraform.tfvars` which autoloads for all environment creations will have only generic variables. 
 ```t
 # Generic Variables
-aws_region = "us-east-1"
+aws_region = "ap-south-1"
 business_divsion = "hr"
 ```
 
@@ -514,7 +514,7 @@ https://github.com/stacksimplify/terraform-iacdevops-with-aws-codepipeline.git
 [Container] 2021/05/11 06:24:09 Processing environment variables
 [Container] 2021/05/11 06:24:09 Decrypting parameter store environment variables
 [Container] 2021/05/11 06:24:09 Phase complete: DOWNLOAD_SOURCE State: FAILED
-[Container] 2021/05/11 06:24:09 Phase context status code: Decrypted Variables Error Message: AccessDeniedException: User: arn:aws:sts::180789647333:assumed-role/codebuild-codebuild-tf-iacdevops-aws-cp1-service-role/AWSCodeBuild-97595edc-1db1-4070-97a0-71fa862f0993 is not authorized to perform: ssm:GetParameters on resource: arn:aws:ssm:us-east-1:180789647333:parameter/CodeBuild/MY_AWS_ACCESS_KEY_ID
+[Container] 2021/05/11 06:24:09 Phase context status code: Decrypted Variables Error Message: AccessDeniedException: User: arn:aws:sts::180789647333:assumed-role/codebuild-codebuild-tf-iacdevops-aws-cp1-service-role/AWSCodeBuild-97595edc-1db1-4070-97a0-71fa862f0993 is not authorized to perform: ssm:GetParameters on resource: arn:aws:ssm:ap-south-1:180789647333:parameter/CodeBuild/MY_AWS_ACCESS_KEY_ID
 ```
 ## Step-16: Fix ssm:GetParameters IAM Role issues
 ### Step-16-01: Get IAM Service Role used by CodeBuild Project

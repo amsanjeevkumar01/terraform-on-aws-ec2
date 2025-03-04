@@ -16,11 +16,11 @@
           "attributes": {
             "actions_enabled": true,
             "alarm_actions": [
-              "arn:aws:sns:us-east-1:180789647333:tempasg-11-sns-topic11"
+              "arn:aws:sns:ap-south-1:180789647333:tempasg-11-sns-topic11"
             ],
             "alarm_description": "temp-alarm",
             "alarm_name": "temp-alarm",
-            "arn": "arn:aws:cloudwatch:us-east-1:180789647333:alarm:temp-alarm",
+            "arn": "arn:aws:cloudwatch:ap-south-1:180789647333:alarm:temp-alarm",
             "comparison_operator": "GreaterThanThreshold",
             "datapoints_to_alarm": 1,
             "dimensions": {

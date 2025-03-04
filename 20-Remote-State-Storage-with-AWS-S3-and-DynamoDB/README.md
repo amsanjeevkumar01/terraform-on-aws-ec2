@@ -50,7 +50,7 @@ description: Store Terraform State in AWS S3 and Implement State Locking with AW
   backend "s3" {
     bucket = "terraform-on-aws-for-ec2"
     key    = "dev/project1-vpc/terraform.tfstate"
-    region = "us-east-1" 
+    region = "ap-south-1" 
 
     # Enable during Step-09     
     # For State Locking

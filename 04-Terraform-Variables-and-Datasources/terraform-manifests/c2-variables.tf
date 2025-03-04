@@ -3,7 +3,7 @@
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
-  default = "us-east-1"
+  default = "ap-south-1"
 }
 
 # AWS EC2 Instance Type
@@ -11,6 +11,10 @@ variable "instance_type" {
   description = "EC2 Instnace Type"
   type = string
   default = "t3.micro"
+  validation {
+    condition = length(var.instance_type) > 0
+    error_message = "Instance Type should not be empty"
+  }
 }
 
 # AWS EC2 Instance Key Pair

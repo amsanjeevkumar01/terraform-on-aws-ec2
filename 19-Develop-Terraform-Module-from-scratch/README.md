@@ -83,7 +83,7 @@ description: Create Terraform Modules locally
 http://example-bucket.s3-website.Region.amazonaws.com/
 
 # Replace Values (Bucket Name, Region)
-http://mybucket-1045.s3-website.us-east-1.amazonaws.com/
+http://mybucket-1045.s3-website.ap-south-1.amazonaws.com/
 ```
 
 ### Step-02-07: Conclusion
@@ -129,7 +129,7 @@ terraform apply -auto-approve
 http://example-bucket.s3-website.Region.amazonaws.com/
 
 # Replace Values (Bucket Name, Region)
-http://mybucket-1046.s3-website.us-east-1.amazonaws.com/
+http://mybucket-1046.s3-website.ap-south-1.amazonaws.com/
 ```
 ### Step-03-04: Destroy and Clean-Up
 ```t
@@ -213,7 +213,7 @@ terraform apply -auto-approve
 http://example-bucket.s3-website.Region.amazonaws.com/
 
 # Replace Values (Bucket Name, Region)
-http://mybucket-1047.s3-website.us-east-1.amazonaws.com/
+http://mybucket-1047.s3-website.ap-south-1.amazonaws.com/
 ```
 
 ### Step-04-05: Destroy and Clean-Up

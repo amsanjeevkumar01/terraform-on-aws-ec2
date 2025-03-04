@@ -13,7 +13,7 @@ terraform import aws_synthetics_canary.some app1-canary-test
 
 resource "aws_synthetics_canary" "sswebsite2" {
   name                 = "sswebsite2"
-  artifact_s3_location = "s3://cw-syn-results-180789647333-us-east-1/canary/us-east-1/sswebsite2"
+  artifact_s3_location = "s3://cw-syn-results-180789647333-ap-south-1/canary/ap-south-1/sswebsite2"
   execution_role_arn   = "arn:aws:iam::180789647333:role/service-role/CloudWatchSyntheticsRole-app1-canary-test-eaf-ff4674189c99"
   handler              = "sswebsite2.handler"
   zip_file             = "sswebsite2/sswebsite2v1.zip"
